@@ -37,42 +37,46 @@
                 <h3 class="display-3 text-success">Task list </h3>
             </div>
         </div>
-        <!-- <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="/newTask" method="post" autocomplete="off">
+        <div class="row">
 
-                            <div class="form-group mt-2">
-                                <label for="titlw">Title</label>
-                                <input type="text" name="title" id="title" class="form-control" required>
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="titlw">Content</label>
-                                <textarea name="content" id="content" class="form-control" cols="30"
-                                    rows="10"></textarea>
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="start">Start Date</label>
-                                <input type="datetime-local" name="start" id="start" class="form-control" required>
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="end">End Date</label>
-                                <input type="datetime-local" name="end" id="end" class="form-control" required>
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="user">User Name</label>
-                                <input type="text" name="user" id="user" class="form-control" required>
-                            </div>
-                            <div class="form-group mt-2">
-
-                                <input type="submit" value="Create Task" class="btn btn-success">
-                            </div>
-                        </form>
+            <% tasks.forEach((item,index) =>{ %>
+                <div class="col-md-4 mt-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="text-center"><%=item.title  %> </h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <details>
+                                        <summary>Content</summary>
+                                        <p class="text-justify"><%=item.content  %>  </p>
+                                    </details>
+                                </li>
+                                <li class="list-group-item">
+                                    <strong class="text-success">Start Date</strong>
+                                    <span class="float-end badge  bg-success"> <%=item.start %> </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <strong class="text-danger">End Date</strong>
+                                    <span class="float-end  badge bg-danger"> <%=item.end %> </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <strong class="text-primary"> Created By</strong>
+                                    <span class="float-end"> <%=item.user %> </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/update/<%=item._id  %>" class="btn btn-sm btn-outline-info">Edit</a>
+                            <a href="/delete/<%=item._id  %>" class="btn btn-sm btn-outline-danger float-end">Delete</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div> -->
+
+            <% })%>
+
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.bundle.min.js"
